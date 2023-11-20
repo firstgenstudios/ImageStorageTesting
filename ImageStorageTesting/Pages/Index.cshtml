@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+<p>
+    <a asp-page="UploadImg">Upload a new Image</a>
+</p>
+
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Mobile Number</th>
+            <th>Filename</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Profiles.Count > 0)
+        {
+            @for(int i = 0; i< Model.Profiles.Count; i++)
+            {
+                <tr>
+                    <td><img src="@Model.Images[i]" style="width: 120px; height: 120px" alt="Picture" /></td>
+                    <td>@Model.Profiles[i].MobileNumber</td>
+                    <td>@Model.Profiles[i].ImgFileName</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
