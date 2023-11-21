@@ -15,11 +15,6 @@
         <form method="post" enctype="multipart/form-data">
             <div asp-asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group mb-3">
-                <label asp-for="ProfileData.MobileNumber" class="control-label"></label>
-                <input asp-for="ProfileData.MobileNumber" class="form-control" />
-                <span asp-validation-for="ProfileData.MobileNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
                 <label asp-for="ProfileData.ImageFile" class="control-label"></label>
                 <input type="file" asp-for="ProfileData.ImageFile" class="form-control" />
                 <span asp-validation-for="ProfileData.ImageFile" class="text-danger"></span>
