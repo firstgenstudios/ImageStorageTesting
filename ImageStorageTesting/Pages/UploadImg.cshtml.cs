@@ -25,16 +25,14 @@ public class UploadImgModel : PageModel
 
     public async Task<IActionResult> OnPost()
     {
-        byte[] bytes = null;
+        byte[]? bytes = null;
 
         if (ProfileData.ImageFile != null)
         {
             using (Stream fs = ProfileData.ImageFile.OpenReadStream())
             {
-                using (BinaryReader br = new BinaryReader(fs))
-                {
-                    bytes = br.ReadBytes((int)ProfileData.ImageFile.Length);
-                }
+                using BinaryReader br = new(fs);
+                bytes = br.ReadBytes((int)ProfileData.ImageFile.Length);
             }
             ProfileData.ImgData = Convert.ToBase64String(bytes,0,bytes.Length);
 
